@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+    <class name="vo.ParkingVO" table="SPM_PARKING_MST">
+        <id name="parkingID" type="long">
+            <column name="PARKINGID" />
+            <generator class="increment" />
+        </id>
+        <property name="parkingName" type="java.lang.String">
+            <column name="PARKINGNAME" />
+        </property>
+        <property name="addressLine1" type="java.lang.String">
+            <column name="ADDRESSLINE1" />
+        </property>
+        <property name="addressLine2" type="java.lang.String">
+            <column name="ADDRESSLINE2" />
+        </property>
+        <property name="landmark" type="java.lang.String">
+            <column name="LANDMARK" />
+        </property>
+        <property name="pincode" type="java.lang.String">
+            <column name="PINCODE" />
+        </property>
+        <property name="mapLat" type="double">
+            <column name="MAPLAT" />
+        </property>
+        <property name="mapLon" type="double">
+            <column name="MAPLON" />
+        </property>
+        <property name="commission" type="double">
+            <column name="COMMISSION" />
+        </property>
+         <property name="status" type="int">
+            <column name="STATUS" />
+        </property>
+          <many-to-one name="attachmentID" class="vo.AttachmentVO" fetch="join">
+            <column name="ATTACHMENTID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

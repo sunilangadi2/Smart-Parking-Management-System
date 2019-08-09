@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+<session-factory>
+  <property name="hibernate.connection.driver_class">
+
+com.mysql.jdbc.Driver</property>
+  <property name="hibernate.connection.url">
+
+jdbc:mysql://localhost:3306/spm_db</property>
+  <property name="hibernate.connection.username">root</property>
+  <property name="hibernate.connection.password">admin</property>
+  <property name="hibernate.connection.pool_size">10</property>
+  <property name="show_sql">true</property>
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="hibernate.hbm2ddl.auto">update</property>
+  <property name="hibernate.jdbc.batch_size">50 </property>
+  <!-- Mapping files -->
+
+     
+    <mapping resource="vo/BookingVO.hbm.xml"/>  
+    <mapping resource="vo/ParkingChargeVO.hbm.xml"/>  
+    <mapping resource="vo/ParkingVO.hbm.xml"/>  
+    <mapping resource="vo/PaymentVO.hbm.xml"/>  
+    <mapping resource="vo/PersonVO.hbm.xml"/>  
+    <mapping resource="vo/PreBookingVO.hbm.xml"/>      
+	<mapping resource="vo/SlotsVO.hbm.xml"/>
+	<mapping resource="vo/TransactionVO.hbm.xml"/>
+	<mapping resource="vo/UserLogVO.hbm.xml"/>
+	<mapping resource="vo/UserVO.hbm.xml"/>
+	<mapping resource="vo/VehicleVO.hbm.xml"/>
+	
+    <mapping resource="vo/ParkingEmployeeVO.hbm.xml"/>
+     <mapping resource="vo/AttachmentVO.hbm.xml"/> 
+      <mapping resource="vo/FeedBackVO.hbm.xml"/> 
+    
+     
+ </session-factory>
+</hibernate-configuration>

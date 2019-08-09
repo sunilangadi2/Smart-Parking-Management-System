@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <class name="vo.FeedBackVO" table="spm_feedback_dtl" lazy="false">
+  <id name="feedBackID" type="long">
+   <column name="FEEDBACKID"/>
+   <generator class="increment"/>
+  </id>
+  
+  <property generated="never" lazy="false" name="name" type="java.lang.String">
+   <column name="NAME"/>
+  </property>
+  <property generated="never" lazy="false" name="subject" type="java.lang.String">
+   <column name="SUBJECT"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="java.lang.String">
+   <column name="EMAIL"/>
+  </property>
+  <property generated="never" lazy="false" name="description" type="java.lang.String">
+   <column name="DESCRIPTION"/>
+  </property>
+  <many-to-one class="vo.UserVO" fetch="join" name="userID">
+   <column name="USERID"/>
+  </many-to-one>
+
+ </class>
+</hibernate-mapping>

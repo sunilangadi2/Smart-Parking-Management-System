@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.SlotsVO" table="SPM_SLOTS_MST">
+  <id name="slotID" type="long">
+   <column name="SLOTID"/>
+   <generator class="increment"/>
+  </id>
+  <many-to-one class="vo.ParkingVO" fetch="join" name="parkingID">
+   <column name="PARKINGID"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="slotName" type="java.lang.String">
+   <column name="SLOTNAME"/>
+  </property>
+  <property generated="never" lazy="false" name="description" type="java.lang.String">
+   <column name="DESCRIPTION"/>
+  </property>
+    <many-to-one name="attachmentID" class="vo.AttachmentVO" fetch="join">
+            <column name="ATTACHMENTID" />
+        </many-to-one>
+ </class>
+</hibernate-mapping>

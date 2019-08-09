@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping>
+    <class name="vo.BookingVO" table="SPM_BOOKING_MST" lazy="false">
+       
+       
+        <id name="bookingID" type="long">
+            <column name="BOOKINGID" />
+            <generator class="increment" />
+        </id>
+        
+        
+        <many-to-one name="userID" class="vo.UserVO" fetch="join">
+            <column name="USERID" />
+        </many-to-one>
+          
+   <many-to-one class="vo.SlotsVO" fetch="join" name="slotID">
+   <column name="SLOTID"/>
+  </many-to-one>
+        <many-to-one name="vehicleID" class="vo.VehicleVO" fetch="join">
+            <column name="VEHICLEID" />
+        </many-to-one>
+        <property name="inTime" type="java.lang.String">
+            <column name="INTIME" />
+        </property>
+        <property name="outTime" type="java.lang.String">
+            <column name="OUTTIME" />
+        </property>
+        <many-to-one name="parkingID" class="vo.ParkingVO" fetch="join">
+            <column name="PARKINGID" />
+        </many-to-one>
+        <many-to-one name="preBookingID" class="vo.PreBookingVO" fetch="join">
+            <column name="PREBOOKINGID" />
+        </many-to-one>
+        <property name="paymentInitial" type="double">
+            <column name="PAYMENTINITIAL" />
+        </property>
+        <property name="paymentFinal" type="double">
+            <column name="PAYMENTFINAL" />
+        </property>
+    </class>
+</hibernate-mapping>

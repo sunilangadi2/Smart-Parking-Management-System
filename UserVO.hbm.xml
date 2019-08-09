@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false">
+    <class name="vo.UserVO" table="SPM_USER_MST">
+        <id name="userID" type="long">
+            <column name="USERID" />
+            <generator class="increment" />
+        </id>
+        <property name="userName" type="java.lang.String">
+            <column name="USERNAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <many-to-one name="personID" class="vo.PersonVO" fetch="join">
+            <column name="PERSONID" />
+        </many-to-one>
+        <property name="userType" type="int">
+            <column name="USERTYPE" />
+        </property>
+         <property name="status" type="int">
+            <column name="STATUS" />
+        </property>
+        <many-to-one name="attachmentID" class="vo.AttachmentVO" fetch="join">
+            <column name="ATTACHMENTID" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

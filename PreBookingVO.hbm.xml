@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.PreBookingVO" table="SPM_PREBOOKING_MST">
+  <id name="preBookingID" type="long">
+   <column name="PREBOOKINGID"/>
+   <generator class="increment"/>
+  </id>
+  <many-to-one class="vo.PersonVO" fetch="join" name="personID">
+   <column name="PERSONID"/>
+  </many-to-one>
+  <many-to-one class="vo.UserVO" fetch="join" name="userID">
+   <column name="USERID"/>
+  </many-to-one>
+  <many-to-one class="vo.VehicleVO" fetch="join" name="vehicleID">
+   <column name="VEHICLEID"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="bookingTime" type="java.lang.String">
+   <column name="BOOKINGTIME"/>
+  </property>
+   <many-to-one name="parkingID" class="vo.ParkingVO" fetch="join">
+            <column name="PARKINGID" />
+        </many-to-one>
+        
+         <property name="status" type="int">
+            <column name="STATUS" />
+        </property>
+        
+   <many-to-one class="vo.SlotsVO" fetch="join" name="slotID">
+   <column name="SLOTID"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="parkingTime" type="java.lang.String">
+   <column name="PARKINGTIME"/>
+  </property>
+  <property generated="never" lazy="false" name="extendedTime1" type="java.lang.String">
+   <column name="EXTENDEDTIME1"/>
+  </property>
+  <property generated="never" lazy="false" name="extendedTime2" type="java.lang.String">
+   <column name="EXTENDEDTIME2"/>
+  </property>
+ </class>
+</hibernate-mapping>

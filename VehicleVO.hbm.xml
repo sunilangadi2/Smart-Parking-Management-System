@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.VehicleVO" table="SPM_VEHICLE_MST">
+  <id name="vehicleID" type="long">
+   <column name="VEHICLEID"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="model" type="java.lang.String">
+   <column name="MODEL"/>
+  </property>
+  <property generated="never" lazy="false" name="numberOfVehicle" type="java.lang.String">
+   <column name="NUMBEROFVEHICLE"/>
+  </property>
+  <many-to-one class="vo.UserVO" fetch="join" name="userID">
+   <column name="USERID"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.ParkingChargeVO" table="SPM_PARKINGCHARGE_MST">
+  <id name="parkingChargeID" type="long">
+   <column name="PARKINGCHARGEID"/>
+   <generator class="increment"/>
+  </id>
+  <property generated="never" lazy="false" name="lowerLimit" type="float">
+   <column name="LOWERLIMIT"/>
+  </property>
+  <property generated="never" lazy="false" name="upperLimit" type="float">
+   <column name="UPPERLIMIT"/>
+  </property>
+  <property generated="never" lazy="false" name="charge" type="float">
+   <column name="CHARGE"/>
+  </property>
+  <many-to-one class="vo.ParkingVO" fetch="join" name="parkingID">
+   <column name="PARKINGID"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

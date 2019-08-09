@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.ParkingEmployeeVO" table="SPM_PARKINGEMPLOYEE_MPG">
+  <id name="parkingEmployeeID" type="long">
+   <column name="PARKINGEMPLOYEEID"/>
+   <generator class="increment"/>
+  </id>
+  <many-to-one class="vo.ParkingVO" fetch="join" name="parkingID">
+   <column name="PARKINGID"/>
+  </many-to-one>
+  <many-to-one class="vo.UserVO" fetch="join" name="userID">
+   <column name="USERID"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

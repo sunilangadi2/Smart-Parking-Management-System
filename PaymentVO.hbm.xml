@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping default-lazy="false">
+ <class name="vo.PaymentVO" table="SPM_PAYMENT_DTL">
+  <id name="paymentID" type="long">
+   <column name="PAYMENTID"/>
+   <generator class="increment"/>
+  </id>
+  <many-to-one class="vo.UserVO" fetch="join" name="userID">
+   <column name="USERID"/>
+  </many-to-one>
+  <many-to-one class="vo.ParkingVO" fetch="join" name="parkingID">
+   <column name="PARKINGID"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="amount" type="double">
+   <column name="AMOUNT"/>
+  </property>
+   <property name="paymentTime" type="java.lang.String">
+            <column name="PAYMENTTIME" />
+        </property>
+  <property generated="never" lazy="false" name="paymentType" type="java.lang.String">
+   <column name="PAYMENTTYPE"/>
+  </property>
+ </class>
+</hibernate-mapping>
